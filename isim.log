@@ -1,0 +1,37 @@
+Command line:
+   ./Tb_Johnson_counter_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  2200
+
+Tue May 15 18:48:29 2018
+
+Total Line Count : 15
+
+ Elaboration Time: 0 sec
+
+ Current Memory Usage: 141.353 Meg
+
+ Total Signals          : 7
+ Total Nets             : 10
+ Total Signal Drivers   : 4
+ Total Blocks           : 3
+ Total Primitive Blocks : 1
+ Total Processes        : 4
+ Total Traceable Variables  : 9
+ Total Scalar Nets and Variables : 371
+ntrace select -o on -n /tb_johnson_counter/clk 
+ntrace select -o on -n /tb_johnson_counter/rst 
+ntrace select -o on -n /tb_johnson_counter/q 
+ntrace select -o on -n /tb_johnson_counter/clk_period 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.015625 sec
+
+ Current Memory Usage: 151.904 Meg
+
+Tue May 15 18:50:14 2018
+

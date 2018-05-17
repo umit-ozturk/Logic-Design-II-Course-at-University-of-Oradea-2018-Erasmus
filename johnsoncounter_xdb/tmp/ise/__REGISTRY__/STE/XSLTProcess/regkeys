@@ -1,0 +1,6 @@
+CommandLine
+C:\Xilinx\10.1\ISE\bin\nt\unwrapped\XSLTProcess.exe -ise C:/Documents and Settings/user/Desktop/johnson/johnsoncounter.ise Johnson_counter_build.xml
+s
+FormatString
+xsltprocess [--intstyle ise|xflow|silent] <xmlfile> [-a] [-w] [--libxslt <limit:-1,10>] 
+s

@@ -1,0 +1,29 @@
+set -tmpdir "C:/Documents and Settings/user/Desktop/johnson/xst/projnav.tmp"
+set -xsthdpdir "C:/Documents and Settings/user/Desktop/johnson/xst"
+run
+-ifn Johnson_counter.prj
+-ifmt mixed
+-ofn Johnson_counter
+-ofmt NGC
+-p xc9500
+-top Johnson_counter
+-opt_mode Speed
+-opt_level 1
+-iuc NO
+-lso Johnson_counter.lso
+-keep_hierarchy YES
+-netlist_hierarchy as_optimized
+-rtlview Yes
+-hierarchy_separator /
+-bus_delimiter <>
+-case maintain
+-verilog2001 YES
+-fsm_extract YES -fsm_encoding Auto
+-safe_implementation No
+-mux_extract YES
+-resource_sharing YES
+-iobuf YES
+-pld_mp YES
+-pld_xp YES
+-wysiwyg NO
+-equivalent_register_removal YES

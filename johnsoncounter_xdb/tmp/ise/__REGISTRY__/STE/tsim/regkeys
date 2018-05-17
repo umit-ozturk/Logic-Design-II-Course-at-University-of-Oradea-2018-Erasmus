@@ -1,0 +1,6 @@
+CommandLine
+C:\Xilinx\10.1\ISE\bin\nt\unwrapped\tsim.exe -ise C:/Documents and Settings/user/Desktop/johnson/johnsoncounter.ise -intstyle ise Johnson_counter Johnson_counter.nga
+s
+FormatString
+tsim <design[.vm6]> [--intstyle ise|xflow|silent] [<outfile>] 
+s

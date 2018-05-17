@@ -1,0 +1,24 @@
+Determining compilation order of HDL files
+Analyzing VHDL file johnsoncounter.vhd
+Restoring VHDL parse-tree ieee.std_logic_1164 from
+c:/xilinx/10.1/ise/vhdl/hdp/nt/ieee/std_logic_1164.vdb
+Restoring VHDL parse-tree std.standard from
+c:/xilinx/10.1/ise/vhdl/hdp/nt/std/standard.vdb
+Analyzing VHDL file Tb_Johnson_counter.vhd
+Saving VHDL parse-tree work.johnson_counter into c:/documents and
+settings/user/desktop/johnson/isim/work/johnson_counter.vdb
+Saving VHDL parse-tree work.tb_johnson_counter into c:/documents and
+settings/user/desktop/johnson/isim/work/tb_johnson_counter.vdb
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 55100 Kb
+Fuse CPU Usage: 93 ms
+Using precompiled package standard from library std
+Using precompiled package std_logic_1164 from library ieee
+Compiling architecture behavioral of entity johnson_counter
+[johnson_counter_default]
+Compiling architecture behavior of entity tb_johnson_counter
+Compiled 5 VHDL Units
+Built simulation executable Tb_Johnson_counter_isim_beh.exe
+Fuse Memory Usage: 56384 Kb
+Fuse CPU Usage: 108 ms

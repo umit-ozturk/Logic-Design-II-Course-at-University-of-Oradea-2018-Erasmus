@@ -1,0 +1,2 @@
+vhdl work "johnsoncounter.vhd"
+vhdl work "Tb_Johnson_counter.vhd"
