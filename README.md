@@ -1,81 +1,69 @@
 **Work**
 
-4 Bit Johnson Counter Example with VHDL language.
-
+4 Bit Johnson Counter Example with VHDL language. 
 
 **Usage**
 
-
-The codes are written in Windows XP operating system at Xilink ISE. Please run johnsoncounter.ise with Xilink.
-
-
+The codes are written in Windows XP operating system at Xilink ISE. Please run johnsoncounter.ise with Xilink. 
 
 **Code**
 
-![VHDL Module Johnson Counter Code](/images/johnsoncounter-vhdl-module.jpg)
+![VHDL Module Johnson Counter Code](/images/johnsoncounter-vhdl-module.jpg) 
 
+There are two inputs as clock and reset. We defined 4 outputs as 0 down to 3 and we will see it in the Synthesis Report. We start the process with clock and reset parameters. If Reset is "1", output will change as "0000". Because this a 4-bit Johnson (Ring) Counter. If Reset is "0", the clock value which we will see in the Test Branch will perform this procedure in the below in every clock cycle;  
 
-Clock ve Reset olmak üzere iki input bulunmakta. Output olarak ise 0 downto 3 şeklinde 4 tane outpu tanımladık bunu Syntesis Report ta göreceğiz. Process i clk ve reset parametreleri ile başlatıyoruz. Eğer Reset "1" ise outputlarımız "0000" değerine getiriliyor. Çünkü bu bir 4 bitlik Johson Counteri. Eğer Reset "0" ise ve Test Branch'te göreceğimiz Clock değeri, her bir saat vuruşunda aşağıdaki işlemi gerçekleştirecek; 
- En sağdaki biti bir sola kaydır.
- En soldaki biti en sağa değili olarak getir. ( Bu case için 0 olmalıdır.) Bu durumda Counter Binary şekilde 0000 dan 1111' daha sonra ise 1111'den 0000 a geriye doğru sayacaktır.
+ Put the least significant bit to one digit left. 
 
+ Put the most significant bit to the least significant digit and change it to its not. (For this case it must be 0) In this situation Counter Binary will count from 0000 to 1111 and after that countdown from 1111 to 0000. 
 
+**Synthesis Report**
 
-**Syntesis Report**
+![Synthesis Report Johnson Counter](/images/synthesis-report.jpg) 
 
-![Syntesis Report Johnson Counter](/images/syntesis-report.jpg)
-
-Codu yazıp compile ettik sonrasında ise Syntesis Report Sayfası karşımıza geliyor. Burada inputları ve Vector şeklinde tanımlanmış outputları görmekteyiz. Sizi şaşırtmasın inputlarımız 0 gözüksede Clock inputu GCK (Global Clock) Reset inputu GSR (Global Set/Reset) olarak tanımlandı.
+After we write the code and compile it, Synthesis Report page will open. In this page there are inputs and outputs which are defined as vectors. Don't be surprised. Even if the inputs are seemed as "0", The input Clock is defined as GCK (Global Clock) and the input Reset is defined as GSR (Global Set/Reset) 
 
 **RTL Schematic**
 
-![Main RTL Schematic Johnson Counter](/images/rtl-schematic0.jpg)
+![Main RTL Schematic Johnson Counter](/images/rtl-schematic0.jpg) 
 
-Burada çok basitçe devrenin ana yapısını görmekteyiz.
+Here, we can simply see the main structure of the circuit. 
 
-![RTL Schematic Johnson Counter](/images/rtl-schematic.jpg)
+![RTL Schematic Johnson Counter](/images/rtl-schematic.jpg) 
 
-Burada ise Outputun sadece vektor olarak açılımı görünmekte. Ama Q çıkışından anlayacağımız üzere 4 adet D tipi Flip/Flop var. Çünkü Bir D tipi bir Flip/Flop aynı saat vuruşunda sadece bir bitlik bilgi tutabilir.
-
+Here, only the expansion of the output as vector. But as we can understand from the Q exit, there are 4 D type Flip/Flops. Because a D type Flip/Flop can only hold one-bit information in the same clock cycle. 
 
 **Technology Schematic**
 
-![Main Technology Schematic Johnson Counter](/images/technology-schematic0.jpg)
+![Main Technology Schematic Johnson Counter](/images/technology-schematic0.jpg) 
 
+Here, we simply see the main structure of the circuit. 
 
-Burada çok basitçe devrenin ana yapısını görmekteyiz.
+![Technology Schematic Johnson Counter](/images/technology-schematic.jpg) 
 
-![Technology Schematic Johnson Counter](/images/technology-schematic.jpg)
-
-
-Burada ise devre tamamen açık bir şekilde görünmekte. Son FF'in çıkışının Invertor olmasına dikkat etmek gerek. Çünkü Sayacımız geriyede saymalı.
-
+Here, it is seen that the circuit is completely open. We need to beware of FF exit being an invertor because we need for our counter to also countdown.  
 
 **Testing**
 
-![Test Branch Johnson Counter Code](/images/tbjohnsoncode0.jpg)
+![Test Branch Johnson Counter Code](/images/tbjohnsoncode0.jpg) 
 
+As it is seen, we defined Clock Reset and the Q output as a component in vector form. We initialized our inputs' start value as "0". 
 
-Görüldüğü gibi Clock Reset ve Q outputumuzu vektör şeklinde bir component olarak tanımladık. Inputlarımızın başlangıç değerlerini "0" olarak initilaze ettik.
-Process başladığında görüldüğü üzere Clock değerinin değeri fark etmeksizin periyot/2 kadar clock değeri bekleyecek. Clock Periyot değeri bu örnek için 10 ns olarak initilaze edildi. Bu karesel sinyallerin önemli bir şifreleme tekniğidir. Tabiki başka tekniklerde vardır fakat bu örnek için Periyot/2 zaman 0 Periyot/2 zaman 1 değeri olarak tanımlanır. Veya tam tersi ilk 1 sonra 0 olarak. 
+When the process starts, as it is seen, regardless of clock value the operation will wait for period/2 clock value. Clock period value was initialized as 10 Nano seconds for this example. This is an important encrypting technique for quadratic signals. Of course, there are other techniques but for this example value is defined as period/2 clock 0 and period/2 clock 1 or the exact opposite first 1 and then 0.  
 
+![Test Branch Johnson Counter Code](/images/tbjohnsoncode.jpg) 
 
-![Test Branch Johnson Counter Code](/images/tbjohnsoncode.jpg)
+In this example reset will wait for the first 100 Nano seconds and will work in the second for 100 Nano seconds. 
 
-Reset ise bu örnekte ilk 100 ns bekleyecek daha sonraki 100 ns için çalışacaktır.
+![Test Branch Johnson Counter Simulation](/images/tbjohnson1.jpg) 
 
+As it is seen when the test starts, in every clock period, the operation of counting happens. Of course, counting goes in binary form as 0000, 0001, 0011, 0111, 1111. In 100th Nano second, in the case that reset goes from 0 to 1 the counter will reset to "0000". During the reset period the counter will show "0000" value. In the 200th Nano second reset will finish and in the 205th Nano second with the beginning of the clock cycle (changing the value form "0" to "1") the counter will start to count again. 
 
-![Test Branch Johnson Counter Simulation](/images/tbjohnson1.jpg)
+![Test Branch Johnson Counter Simulation](/images/tbjohnson2.jpg) 
 
-Görüldüğü üzere test başladığında her bir clock periyodu boyunca sayma işlemimiz gerçekleşiyor tabiki bu sayma binary biçimde 0000, 0001, 0011, 0111, 1111 şeklinde ilerliyor. 100. ns yede reset 0 dan 1 e geçme durumunda ise sayaç tamamen sıfırlanıyor "0000". Reset süresi boyunca sayaç "0000" değerini göstermektedir. 200. ns'de reset bitiyor. ve 205. ns' clock vuruşunun başlamasıyla  ("0" dan "1" değerine geçmesiyle) beraber sayaç tekrar saymaya başlıyor.
+We can more closely and clearly see the value turning in binary form. 
 
-![Test Branch Johnson Counter Simulation](/images/tbjohnson2.jpg)
+![Test Branch Johnson Counter Simulation](/images/tbjohnson3.jpg) 
 
-Daha yakın ve ayrıntılı bir şekilde dönen değerleri binary biçimde görebiliyoruz.
+We can say that the circuit will count from 0000 to 1111 and from 1111 to 0000 forever (Except for 100th and 200th Nano seconds because of the reset). Of course, we can obtain different results by changing reset value in another testcase but it won't change the process of counting of counter. 
 
-![Test Branch Johnson Counter Simulation](/images/tbjohnson3.jpg)
-
-Bu devrenin sonsuza kadar 0000 dan 1111'e 1111'den 0000'a (reset dolayısıyla 100. ve 200. ns ler haricinde) sonsuza kadar sayacağını söyleyebiliriz. Başka bir testcase'de reset değerini değiştirerek başka sonuçlar tabikide elde edebiliriz fakat Sayacın sayma işlemi değişmeyecektir.
-
-
-4 bitlik Johnson Counteri ile ilgili örnek bir senaryoyu incelemiş olduk. Aynı mantık ile Bit sayısına göre Johnson Counteri varyantı elde edilebilir.
+We examined an example scenario about 4-bit Johnson Counter. With the same logic by looking at the number of bit we can get an alternative Johnson Counter.
